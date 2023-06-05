@@ -1,0 +1,24 @@
+namespace: staging
+resources:
+- staging-namespace.yaml
+- ../../base
+
+patchesJson6902:
+- target:
+    version: v1
+    kind: Ingress
+    name: ingress-nest
+  path: ingress-staging-patch.yaml
+- target:
+    version: v1
+    kind: ResourceQuota
+    name: resource-quota
+  path: resource-quota-staging-patch.yaml
+
+patches:
+- target:
+    version: v1
+    kind: Deployment
+    name: nest
+  path: deployment-staging-patch.yaml
+

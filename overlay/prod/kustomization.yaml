@@ -1,0 +1,23 @@
+namespace: prod
+resources:
+- prod-namespace.yaml
+- ../../base
+
+patchesJson6902:
+- target:
+    version: v1
+    kind: Ingress
+    name: ingress-nest
+  path: ingress-prod-patch.yaml
+- target:
+    version: v1
+    kind: ResourceQuota
+    name: resource-quota
+  path: resource-quota-prod-patch.yaml
+
+patches:
+- target:
+    version: v1
+    kind: Deployment
+    name: nest
+  path: deployment-prod-patch.yaml

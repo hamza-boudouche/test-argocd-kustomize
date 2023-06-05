@@ -1,0 +1,5 @@
+resources:
+- infra/deployment.yaml
+- infra/service.yaml
+- infra/ingress.yaml
+- infra/resourcequota.yaml
